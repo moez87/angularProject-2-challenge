@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
     email : new FormControl('', [Validators.required, Validators.email]),
     Password : new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
-  
+  submitted : boolean = false;
 
   constructor(private route:Router) { }
 
