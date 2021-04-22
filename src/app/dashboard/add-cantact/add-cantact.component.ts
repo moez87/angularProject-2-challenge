@@ -19,7 +19,7 @@ export class AddCantactComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  AddCantact(){
+  saveCantact(){
 
     this.submitted = true;
     if (this.addCantactForm.invalid) {

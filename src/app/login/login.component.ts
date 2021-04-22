@@ -29,8 +29,8 @@ export class LoginComponent implements OnInit {
 
     if (found !== undefined) {
       localStorage.setItem('connected-user', JSON.stringify(found));
-      // this.route.navigate(['/todo-list']);
-      // this.route.navigateByUrl('/list-todo');
+    
+      this.route.navigateByUrl('/dashboard');
     }
     else {
       alert("please verify your email and password?")

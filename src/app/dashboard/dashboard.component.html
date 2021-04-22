@@ -1,1 +1,35 @@
-<p> list cantact</p>
+<div class="row mt-5">
+    <a routerLink="/add-cantact" class= "btn btn-success mb-5 col-2 float-right">Add Cantact</a>
+  </div>
+  <div class="row mt-5">
+    
+      <div class="offset-1 col-9">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Action</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cantact of cantacts">
+              <th scope="row">{{ cantact.id }}</th>
+              <td>{{ cantact.cantactName}}</td>
+              <td>{{ cantact.email}}</td>
+              <td>{{ cantact.cantactPhoneNumber}}</td>
+            
+              <td>
+                <button class="btn btn-info" [routerLink]="['/./update-cantact', cantact.id]"> <i class="fas fa-pen"></i>
+                  Update</button>
+                <button class="btn btn-danger ml-1" (click)="deletecantact(cantact.id)"> <i class="far fa-trash-alt"></i>
+                  Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

@@ -1,1 +1,43 @@
-<p>update-cantact works!</p>
+<div class="row">
+    <div class="offset-3 col-6">
+        <form [formGroup]=" updateCantactForm" (ngSubmit)="updateCantact()">
+            <div class="form-group">
+                <label for="cantactName"> Cantact Name :</label>
+                <input type="text" class="form-control" id="name" placeholder="Type Cantact Name here"
+                    formControlName="cantactName"
+                    [ngClass]="{'is-invalid': submitted && updateCantactForm.controls.cantactName.errors, 'is-valid': submitted && !updateCantactForm.controls.cantactName.errors}">
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && updateCantactForm.controls.cantactName.hasError('required')">Cantact Name is
+                        required.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Type your email address" aria-describedby="emailHelp"
+                formControlName="email"[ngClass]="{'is-invalid': submitted && updateCantactForm.controls.email.errors, 'is-valid': submitted && !updateCantactForm.controls.email.errors}">
+                <div class="invalid-feedback d-block"
+                          *ngIf="submitted && updateCantactForm.controls.email.hasError('required')">
+                          email is required.
+                      </div>
+                      <div class="invalid-feedback d-block"
+                      *ngIf="submitted && updateCantactForm.controls.email.hasError('email')">
+                   Email is invalid format.
+                  </div>
+                </div>
+            <div class="form-group">
+                <label for="cantactPhoneNumber">Cantact Phone Number:</label>
+                <textarea class="form-control" id="cantactPhoneNumber" placeholder="Type your cantactPhoneNumber here"
+                    formControlName="cantactPhoneNumber"
+                    [ngClass]="{'is-invalid': submitted && updateCantactForm.controls.cantactPhoneNumber.errors, 'is-valid': submitted && !updateCantactForm.controls.cantactPhoneNumber.errors}"></textarea>
+                <div class="invalid-feedback d-block">
+                    <div *ngIf="submitted && updateCantactForm.controls.cantactPhoneNumber.hasError('required')">Cantact Phone Number is required.
+                    </div>
+                    <div *ngIf="submitted && updateCantactForm.controls.cantactPhoneNumber.hasError('minlength')">Cantact Phone Number is invalid
+                        format > 8.</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Update Cantact</button>
+            <button type="submit" class="btn btn-danger btn-block"routerLink="/cantact-list">Cancel</button>
+        </form>
+    </div>
+</div>
